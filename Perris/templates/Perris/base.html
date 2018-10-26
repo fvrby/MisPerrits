@@ -1,26 +1,104 @@
 {% load static %}
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Django Girls blog</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/Perris.css' %}">
+        <!-- html normal-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="https://fonts.googleapis.com/css?family=Lalezar" rel="stylesheet">
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+       <title>Mis Perris</title>
     </head>
+
     <body>
-        <div class="page-header">
+        <header>
+            <div class="contain">
+                <h1>
+                      MIS PERRIS
+                </h1>
+                    <nav class="main-bar">
+                        <a href="index.html">Inicio</a>
+                        <a href="#">Quienes somos</a>
+                         <a href="#">Servicios</a>
+                         <a href="#">Contactos</a>
+                    </nav>
+             </div>
+        </header>
+
+        <main>
+            <div class="slider">  
+                 <ul>          
+                     <li><img src="img/Slide/Perrito1.jpg" alt=""></li>
+                    <li><img src="img/Slide/Perrito2.jpg" alt=""></li>
+                    <li><img src="img/Slide/Perrito3.jpg" alt=""></li>
+                    <li><img src="img/Slide/Perrito4.jpg" alt=""></li>  
+                 </ul>
+             </div>
+
+             <div class="main-contain">
+                    <div class="contain">
+                        <section class="article">
+                            <div class="margin-img">
+                                <div class="img1">
+                                    <img src="img/perros1.jpg" alt="Perritos en trifulca">
+                                </div>
+                                <h2>Rescata Perros</h2>
+                                <p class="txt">No los dejes solos...Ayudalos</p>
+                            </div>
+                            <div class="margin-img">
+                                <div class="img1">
+                                    <img src="img/perros2.jpg" alt="Perrito con carita triste">
+                                </div>
+                                <h2>Rescata Perros</h2>
+                                <p class="txt">Ellos te necesitan... :(</p>
+                            </div>
+                            <div class="margin-img">
+                                <div class="img1">
+                                    <img src="img/perros3.jpg" alt="">
+                                </div>
+                                <h2>Rescata Perros</h2>
+                                <p class="txt">No te da penita? uwu</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+        </main>
+            <div class="page-header">
                 {% if user.is_authenticated %}
                     <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
                 {% endif %}
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
-        <div class="content container">
+            <h1><a href="/">Perritos Para Adoptar</a></h1>
+            </div>
+            <div class="content container">
             <div class="row">
                 <div class="col-md-8">
                 {% block content %}
                 {% endblock %}
                 </div>
             </div>
+            </div>
+        
+        <div class="galery1">
+             <ul class="galery">
+                <li class="galery__item"><img src="img/galeria/img_galery1.jpg" alt="" class="galery__img"></li>
+                 <li class="galery__item"><img src="img/galeria/img_galery2.jpg" alt="" class="galery__img"></li>
+                 <li class="galery__item"><img src="img/galeria/img_galery3.jpg" alt="" class="galery__img"></li>
+                 <li class="galery__item"><img src="img/galeria/img_galery4.jpg" alt="" class="galery__img"></li>
+                 <li class="galery__item"><img src="img/galeria/img_galery5.jpg" alt="" class="galery__img"></li>
+                 <li class="galery__item"><img src="img/galeria/img_galery6.jpg" alt="" class="galery__img"></li>
+            </ul>
         </div>
+
+        <footer>
+             <div class="contacsocial">
+                  <a href="#"><i class="fab fa-facebook-square"></i></a>
+                 <a href="#"><i class="fab fa-twitter"></i></a>
+             </div>
+        </footer>
     </body>
 </html>
