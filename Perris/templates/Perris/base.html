@@ -39,6 +39,17 @@
                         
                     </ul>
                 </div>
+                {% block title %} Login {% endblock %}
+                {% block login %}
+                    <h1>Login</h1>
+                    {% if message %}
+                    <b>{{message}}</b>
+                    {% endif %}
+                    <form action="" method="post">{% csrf_token %}
+                    {{form.as_p}}
+                    <input type="submit" value="Submit" />
+                    </form>
+                {% endblock %}
                 
                 <div class="main-contain">
                     <div class="contain">

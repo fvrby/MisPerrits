@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    background: black;
+    background: white;
     
 }
 
@@ -14,7 +14,7 @@
 header {
     width: 100%;
 
-    background:black;
+    background:white;
     color: white;
     position: fixed;
 
@@ -23,6 +23,8 @@ header {
     border-bottom: 4px solid white;
 
 }
+
+/* -------------------------------------------------------------------- */
 
 .slider {
     width: 100%;
@@ -66,16 +68,18 @@ header {
     100% {margin-left: -300%;}
 }
 
+/* -------------------------------------------------------------------- */
+
 .contain{
     width: 100%;
-    background: black;
+    background: white;
 }
 
 h1 {
     float: left;
     transform: translateX(3%);
     padding: 6.4px; 
-    color: white;
+    color: black;
 }
 
 .main-bar {
@@ -85,12 +89,12 @@ h1 {
     float: left;
     display: flex;
     transform: translateX(100%);
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #FCA205;
 }
 
 .main-bar a {
     display: block;
-    color: white;
+    color: #FCA205;
     height: 50px;
     padding: 15px;
     border-bottom: 1px;
@@ -107,12 +111,12 @@ h1 {
 }
 
 .main-contain {
-    border: 4px solid white;
+    border: 4px solid #FCA205;
 }
 
 .margin-img {
-    background:black;
-    color: white;
+    background:white;
+    color: black;
     padding: 10px;
     text-align: center;   
     margin: 0 auto;
@@ -128,11 +132,11 @@ h1 {
 
 .txt {
     margin-bottom: 5px;
-    background:black;
+    background:white;
 }
 
 h2 {
-    background:black;
+    background:white;
 }
 
 img {
@@ -141,7 +145,7 @@ img {
 }
 
 .galery1 {
-    border: 4px solid white;
+    border: 4px solid #FCA205;
     padding: 20px;
 }
 
@@ -155,7 +159,7 @@ img {
 
 .galery__item {
     width: 80px;
-    border: 4px solid white;
+    border: 4px solid #FCA205;
     background: white;
 }
 
@@ -165,19 +169,19 @@ img {
 }
 
 footer {
-    background: gray;
+    background: #FCA205;
     padding: 30px;
     text-align: center;
-    border: 4px solid white;
+    border: 4px solid #FCA205;
 }
 
 .contacsocial {
-    background: gray;
+    background: #FCA205;
 }
 
 .contacsocial a {
     font-size: 28px;
-    color: white;
+    color: black;
     padding:10px;
     border: 4px solid white;
 }
