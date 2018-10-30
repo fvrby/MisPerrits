@@ -40,35 +40,5 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'Perris/post_edit.html', {'form': form})
 
-def inicio(request):
-    titulo= "Buenas!"
-    if request.user.is_authenticated():
-        titulo = "Bienvenido % " %(request.user)
-    form = RegModelForm(request.POST or None)
-
-    context = {
-                "titulo": titulo,
-                "el_form": form,
-              }
-    if form.is.valid():
-        instance = form.save(commit=false)
-        nombre = form.cleaned_data.get("nombre")
-        email = form.cleaned_data.get("email")
-        if not instance.nombre:
-            instance.nombre = "PERSONA"
-        instance.save()
-
-        context = {
-                    "titulo": "Gracias %s !" %(nombre)
-                }
-        if not nombre:
-                context = {
-                    "titulo": "Gracias %s !" %(email)
-                }
-        print instance
-        print instance.timestamp
-
-return render(request, "Inicio.html",context)
-
 
 
