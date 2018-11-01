@@ -1,13 +1,13 @@
-from django.shortcuts import redirect
-from django.shortcuts import render
+from django.shortcuts import redirect, render, get_object_or_404, render_to_response
 from django.utils import timezone
-from .models import Post
-from django.shortcuts import render, get_object_or_404
-from .forms import PostForm
-from .forms import LoginForm
+from .models import Post, Adoptar, Adoptado
+from .forms import PostForm, LoginForm
+from .forms import AdoptarForm, AdoptadoForm
 from django.template import RequestContext
-from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import update_session_auth_hash
+
 
 
 def post_list(request):
@@ -17,6 +17,18 @@ def post_list(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'Perris/post_detail.html', {'post': post})
+
+def index(request):
+    adoptar = Adoptar.objects.order_by('run')
+    adoptados = Adoptado.objects.order_by('nombre')
+    return render(request, 'Perris/index.html', {'adoptantes': adoptar, 'adoptados': adoptados})
+
+def galeria(request):
+    PerriDisponibles = Adoptado.objects.filter(estado__contains='Disponible')
+    PerriRescatados = Adoptado.objects.filter(estado__contains='Rescatado')
+    PerriAdoptados = Adoptado.objects.filter(estado__contains='Adoptado')
+    return render(request, 'Perris/galeria.html',{'PerriDisponibles': PerriDisponibles, 'PerriAdoptados': PerriAdoptados ,'PerriRescatados': PerriRescatados})
+
 
 def post_new(request):
     if request.method == "POST":
@@ -65,3 +77,59 @@ def login_page(request):
         form = LoginForm()
     return render_to_response('login.html', {'message': message, 'form': form},
                                 context_instance=RequestContext(request))
+
+#Log Required
+
+@login_required
+def adoptar(request):
+    if request.method == "POST":
+        form = AdoptarForm(request.POST)
+        if form.is_valid():
+            Adoptar = form.save(commit=False)
+            Adoptar.save()
+            return redirect('perritos_disponibles')
+    else:
+        form = AdoptarForm()
+    return render(request, 'Perris/adopta.html',{'form': form})
+
+
+def password_change(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+    else:
+        ...
+
+@login_required
+def perritos_disponibles(request):
+    PerriDisponibles = Adoptado.objects.filter(estado__contains='Disponible')
+    return render(request, 'Perris/galeriaDisponible.html', {'PerriDisponibles': PerriDisponibles})
+
+def perritos_rescatados(request):
+    PerriRescatados = Adoptado.objects.filter(estado__contains='Rescatado')
+    return render(request, 'Perris/galeriaRescatado.html', {'PerriRescatados': PerriRescatados})
+
+def perritos_adoptados(request):
+    PerriAdoptados = Adoptado.objects.filter(estado__contains='Adoptado')
+    return render(request, 'Perris/galeriaAdoptado.html', {'PerriAdoptados': PerriAdoptados})
+
+@login_required
+def detalle_perro(request, pk):
+    adoptado = get_object_or_404(Adoptado, pk=pk)
+    return render(request, 'Perris/detalle_perro.html',{'adoptado': adoptado})
+
+@login_required
+def adoptar_perro(request, pk):
+    adoptado = get_object_or_404(Adoptado, pk=pk)
+    if request.method == "POST":
+        form = AdoptadoForm(request.POST, instance=adoptado)
+        if form.is_valid():
+            adoptado = form.save(commit=False)
+            adoptado.save()
+            return redirect('galeria')
+    else:
+        form = AdoptadoForm(instance=adoptado)
+    return render(request, 'Perris/adoptar_perro.html', {'form': form, 'adoptado': adoptado})
+
