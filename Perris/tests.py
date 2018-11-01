@@ -1,5 +1,5 @@
 from django.test import TestCase
-
+from .models import Adoptar, Adoptado
 from Perris.models import Post
 
 class PostTest(TestCase):

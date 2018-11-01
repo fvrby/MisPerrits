@@ -21,7 +21,7 @@ def post_detail(request, pk):
 def index(request):
     adoptar = Adoptar.objects.order_by('run')
     adoptados = Adoptado.objects.order_by('nombre')
-    return render(request, 'Perris/index.html', {'adoptantes': adoptar, 'adoptados': adoptados})
+    return render(request, 'Perris/index.html', {'adoptar': adoptar, 'adoptados': adoptados})
 
 def galeria(request):
     PerriDisponibles = Adoptado.objects.filter(estado__contains='Disponible')
@@ -81,7 +81,7 @@ def login_page(request):
 #Log Required
 
 @login_required
-def adoptar(request):
+def adopta(request):
     if request.method == "POST":
         form = AdoptarForm(request.POST)
         if form.is_valid():

@@ -15,8 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+#Imagenes
+from django.conf import settings
+from django.conf.urls.static import static
+#Login
+from django.contrib.auth import views
+from django.contrib.auth import views as auth_views
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Perris.urls')), 
-]
+    url('accounts/login/$', views.LoginView.as_view(), name='login'),
+    url('accounts/logout/$', views.LogoutView.as_view(), name='logout', kwargs={'next_page': '/'}),
+    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
