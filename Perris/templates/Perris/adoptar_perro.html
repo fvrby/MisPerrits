@@ -1,0 +1,18 @@
+{% extends 'Perris/base.html' %}
+{% load static %}
+{% block content %}
+    <main>
+      <form method="POST" id="formulario" onsubmit="validate()" action="#">{% csrf_token %}
+        <div class="contenedor_form">
+
+            <h3>{{ adoptado.nombre }}</h3>
+            <p><img class="imagenes" src="/media/{{ adoptado.foto }}"></p>
+
+            {{ form.as_p }}
+
+           <button type="submit" tabindex="12" >Adoptar</button>
+          </div>
+        </form>
+
+    </main>
+{% endblock %}
