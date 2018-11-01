@@ -12,8 +12,6 @@
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'css/Perris.css' %}">
-        <link rel="stylesheet" href="{% static 'css/menu.css' %}">
-        <link rel="stylesheet" href="{% static 'css/adoptar.css' %}">
         <link rel="stylesheet" href="{% static 'css/galeria.css' %}">
         <title>Mis Perris</title>
     </head>
@@ -22,9 +20,11 @@
         <header>
         <div class="contain">
                 <h1>MIS PERRIS</h1>
+        <div class = "log">
                 {% if user.is_authenticated %}
                 <p> Hola... <b>{{ user.username }}</b>. Gracias por iniciar sesión. <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
                 {% endif %}
+        </div>
                 <nav class="main-bar">
                     <li><a href="{% url 'index' %}">Inicio</a></li>
                     <li> <a href="{% url 'galeria' %}" tabindex="2">Galería</a> </li>
