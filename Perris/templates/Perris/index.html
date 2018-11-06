@@ -1,0 +1,21 @@
+{% extends 'Perris/base.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+
+      <h1>Bienvenido</h1>
+      <br />
+      <h3>....Esperamos quiera mucho a su mascota y la cuide.</h3>
+      <hr>
+      <div class="columna1">
+      <p><b>Esperamos Su estadia en la pagina sea provechosa y se lleve un perrito en busca de casa</b></p>
+      </div>
+      <img id="perrito1" src="{% static 'img/cute1.jpg' %}" alt="Perrito muy dulce">
+
+      <div class="columna2">
+      <p><b>Explore nuestros Perritos amorosos y bonitos que lo acompañaran toda su vida</b></p>
+      </div>
+      <img id="perrito2" src="{% static 'img/cute2.jpg' %}" alt="perrito Maldito">
+    </main>
+{% endblock %}

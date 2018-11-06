@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Lalezar" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/Perris.css' %}">
+        <link rel="stylesheet" href="{% static 'css/galeria.css' %}">
+        <title>Mis Perris</title>
+    </head>
+
+    <body>
+        <header>
+        <div class="contain">
+                <h1>MIS PERRIS</h1>
+        <div class = "log">
+                {% if user.is_authenticated %}
+                <p> Hola... <b>{{ user.username }}</b>. Gracias por iniciar sesión. <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
+                {% endif %}
+        </div>
+                <nav class="main-bar">
+                    <li><a href="{% url 'index' %}">Inicio</a></li>
+                    <li> <a href="{% url 'galeria' %}" tabindex="2">Galería</a> </li>
+                    <li><a href="https://www.facebook.com/fvrby">Quienes somos</a></li>
+                    <li> <a href="{% url 'adopta' %}" tabindex="3">Adopta</a> </li>
+                    <li><a href="https://github.com/fvrby/MisPerrits">Contactos</a></li>
+                </nav>
+            </div>
+
+        </header>
+        <main>
+            <nav>
+                <div class="slider">  
+                    <ul>
+                        
+                        <li><img src="{%static 'img/Slide/Perrito1.jpg' %}" alt=""></li>
+                        <li><img src="{%static 'img/Slide/Perrito2.jpg' %}" alt=""></li>
+                        <li><img src="{%static 'img/Slide/Perrito3.jpg' %}" alt=""></li>
+                        <li><img src="{%static 'img/Slide/Perrito4' %}.jpg" alt=""></li>
+                        
+                    </ul>
+                </div>
+            </nav>
+
+            {% block content %}
+            {% endblock %}
+                
+                <div class="main-contain">
+                    <div class="contain">
+                        <section class="article">
+                            <div class="margin-img">
+                                <div class="img1">
+                                    <img src="{%static 'img/perros1.jpg' %}" alt="Perritos en trifulca">
+                                </div>
+                                <h2>Rescata Perros</h2>
+                                <p class="txt">No los dejes solos...Ayudalos</p>
+                            </div>
+                            <div class="margin-img">
+                                <div class="img1">
+                                    <img src="{%static 'img/perros2.jpg' %}" alt="Perrito con carita triste">
+                                </div>
+                                <h2>Rescata Perros</h2>
+                                <p class="txt">Ellos te necesitan... :(</p>
+                            </div>
+                            <div class="margin-img">
+                                <div class="img1">
+                                    <img src="{%static 'img/perros3.jpg' %}" alt="">
+                                </div>
+                                <h2>Rescata Perros</h2>
+                                <p class="txt">No te da penita? uwu</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </main>
+
+            <div class="galery1">
+                <div class = "galeryName">
+                        <h1><a>Perritos Felices</a></h1>
+                </div>
+                    <ul class="galery">
+                        <li class="galery__item"><img src="{%static 'img/galeria/img_galery1.jpg' %}" alt="" class="galery__img"></li>
+                        <li class="galery__item"><img src="{%static 'img/galeria/img_galery2.jpg' %}" alt="" class="galery__img"></li>
+                        <li class="galery__item"><img src="{%static 'img/galeria/img_galery3.jpg' %}" alt="" class="galery__img"></li>
+                        <li class="galery__item"><img src="{%static 'img/galeria/img_galery4.jpg' %}" alt="" class="galery__img"></li>
+                        <li class="galery__item"><img src="{%static 'img/galeria/img_galery5.jpg' %}" alt="" class="galery__img"></li>
+                        <li class="galery__item"><img src="{%static 'img/galeria/img_galery6.jpg' %}" alt="" class="galery__img"></li>
+                    </ul>
+                  </div>
+                  <!---se deshabilita por inactividad 
+            <div class="page-header">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                    {% endif %}
+                    <h1><a href="/">Escribe Algun Comentario</a></h1>
+                </div>
+                <div class="content container">
+                    <div class="row">
+                        <div class="col-md-8">
+                        </div>
+                    </div>
+                </div>-->
+
+            <footer>
+                    <div class="contacsocial">
+                        <a href="https://www.facebook.com/fvrby"><i class="fab fa-facebook-square"></i></a>
+                        <a href="https://twitter.com/?lang=es"><i class="fab fa-twitter"></i></a>
+                    </div>
+            </footer>
+    </body>
+    <script src="{% static 'js/extras.js' %}"></script>
+    <script src="{% static 'js/validation.js' %}"></script>
+</html>
+
+
