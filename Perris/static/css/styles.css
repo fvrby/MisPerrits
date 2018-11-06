@@ -75,10 +75,6 @@ header {
     background: white;
 }
 
-.log{
-    background: #FCA205;
-}
-
 h1 {
     float: left;
     transform: translateX(3%);
@@ -305,7 +301,7 @@ body{
      max-width: 400px;
      margin-bottom: 20px;
      margin-top: 50px;
-     background-color: #FCA205;
+     background-color: #d7fbe8;
     }
   
     .imagenesdetalle{
@@ -339,13 +335,13 @@ body{
      display: inline-block;
      border-radius: 20px;
      box-shadow: 4px 4px #FCA205;
-     border: solid 2px #FCA205;
+     border: solid 2px black;
      text-align: center;
      margin:auto;
      max-width: 400px;
      margin-bottom: 20px;
      margin-top: 50px;
-     background-color: #FCA205;
+     background-color: #d7fbe8;
      margin-left: 35px;
     }
   
@@ -387,7 +383,7 @@ body{
   }
   
   footer a{
-      color: #FCA205;
+      color: lightblue;
   }
   
   @media screen and (min-width:320px){
@@ -416,7 +412,7 @@ body{
       margin: 20px 15px;
       width: 70%;
       max-width: 100%;
-      background-color: #FCA205;
+      background-color: #d7fbe8;
       padding: 15px 30px;
       margin:auto;
       margin-bottom: 20px;
@@ -479,7 +475,7 @@ body{
       margin-top: 20px;
       width: 50%;
       max-width: 100%;
-      background-color: #FCA205;
+      background-color: #d7fbe8;
       padding: 20px 30px;
       margin:auto;
       margin-bottom: 20px;
